@@ -1,9 +1,9 @@
 default: &default
   adapter: "postgresql"
   encoding: "unicode"
-  database: "<%= ENV.fetch("POSTGRES_DB") { "chat_app_db" } %>"
-  username: "<%= ENV.fetch("POSTGRES_USER") { "chat_app_user" } %>"
-  password: "<%= ENV.fetch("POSTGRES_PASSWORD") { "chat_app_password" } %>"
+  database: "<%= ENV.fetch("POSTGRES_DB") { "db" } %>"
+  username: "<%= ENV.fetch("POSTGRES_USER") { "user" } %>"
+  password: "<%= ENV.fetch("POSTGRES_PASSWORD") { "password" } %>"
   host: "<%= ENV.fetch("POSTGRES_HOST") { "postgres" } %>"
   port: "<%= ENV.fetch("POSTGRES_PORT") { 5432 } %>"
   # http://guides.rubyonrails.org/configuring.html#database-pooling
@@ -11,12 +11,12 @@ default: &default
 
 development:
   <<: *default
-  database: <%= ENV.fetch("POSTGRES_DB") { "chat_app_db" } %>_development
+  database: <%= ENV.fetch("POSTGRES_DB") { "db" } %>_development
 
 test:
   <<: *default
-  database: <%= ENV.fetch("POSTGRES_DB") { "chat_app_db" } %>_test
+  database: <%= ENV.fetch("POSTGRES_DB") { "db" } %>_test
 
 production:
   <<: *default
-  database: <%= ENV.fetch("POSTGRES_DB") { "chat_app_db" } %>_production
+  database: <%= ENV.fetch("POSTGRES_DB") { "db" } %>_production
